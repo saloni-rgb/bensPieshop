@@ -1,0 +1,99 @@
+* {
+    color: white;
+}
+body {
+    margin-top: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #eb6240;/*#e6e4d9*/;
+    background-image: url(images/cake.svg);
+    background-repeat: repeat-y;
+    background-position: 25% 0%;
+    /*background-image: linear-gradient(to right, #eb6240, #23cfa7);*/
+}
+#mainheader {
+    background-color: #a593c2;
+}
+nav {
+    height: 60px;
+    width: 1000px;
+    margin: 0 auto 20px;
+}
+
+#leftmenu {
+    float: left;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.searchbox {
+    padding: 5px;
+    margin: 10px 10px;
+    width: 200px;
+}
+
+#main {
+    float: right;
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: #0000FF;
+}
+
+.description {
+    color: rgb(80, 240, 240);
+}
+
+#third, #fourth {
+    color: #00FF00;
+}
+
+#fourth {
+    color: rgba( 255, 0, 0, .5);
+    padding: 10px;
+    background-color: blue;
+}
+
+#cupcakes {
+    background-color: white;
+    width: 300px;
+    box-shadow: 25px 25px 25px rgb(80, 240, 240);
+}
+
+.cupcakeimage {
+    background-color: white;
+    width: 268px;
+    height: 309px;
+    background-image: url(images/cupcakes.png);
+    margin-top: 5px;
+}
+
+#cupcake1 {
+    filter: grayscale(50%);
+}
+
+#cupcake2 {
+    background-position-y: 368px;
+    height: 348px;
+    filter: blur(10px);
+}
+
+#cupcake3 {
+    background-position-x: -263px;
+    height: 442px;
+    filter: invert(100%);
+}
+
+#cupcake4 {
+    background-position-x: -263px;
+    background-position-y: 301px;
+}
+
+
