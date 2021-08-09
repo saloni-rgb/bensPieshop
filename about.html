@@ -12,6 +12,72 @@
     <!--[if 1t IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelement-and-player.min.css">
+    <style>
+        body {
+            margin-top: 0px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #e6e4d9;
+            background-image: url(images/pattern.png);
+        }
+        #mainheader {
+            background-color: #a593c2;
+        }
+        nav {
+            height: 60px;
+            width: 1000px;
+            margin: 0 auto 20px;
+        }
+        
+        #leftmenu {
+            float: left;
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .searchbox {
+            padding: 5px;
+            margin: 10px 10px;
+            width: 200px;
+        }
+
+        #main {
+            float: right;
+            width: 70%;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            clear: both;
+            width: 100%;
+        }
+
+        header,
+        section,
+        footer,
+        aside,
+        nav,
+        main,
+        article,
+        figure {
+            display: block;
+        }
+
+        #main video {
+            width: 100%;
+        }
+
+        #main audio {
+            width: 100%;
+        }
+
+     
+    </style>
+
+    <!-- Shim for Media -->
+    <script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
 
 </head>
 <body>
@@ -44,7 +110,34 @@
 
         <main id="main">
            <article>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/rmMwNp_k36I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               <header>
+                <h1 class="pageTitle">Welcome to Bethany's Pie Shop</h1>
+               </header>
+            
+               <video id="theVideo" controls width="560" height="315">
+                <source src="media/baking.mp4" type="video/mp4"/>
+                <source src="media/baking.webm" type="video/webmbaking.webm"/>
+                <track label="English" kind="subtitles" src="media/baking.vtt" srclang="en" default/>
+                <track label="Spanish" kind="subtitles" src="media/baking.vtt" srclang="es"/>
+                   Your browser doesn't support video
+               </video>
+
+               <div>
+                   <button id="playButton">Play</button>
+                   <button id="pauseButton">Pause</button>
+                   <button id="stopButton">Stop</button>
+               </div>
+
+               <div>
+                   Current Position: <span id="timeDisplay"></span> sec.
+               </div>
+
+               <audio controls id="theAudio">
+                <source src="media/breadsandcake.wav" type="audio/wav"/>
+                <source src="media/breadsandcake.mp3" type="audio/mp3"/>
+                <source src="media/breadsandcake.ogg" type="audio/ogg"/>
+                   Your browser doesn't support audio
+               </audio>
            </article>
 
         </main>
@@ -56,6 +149,43 @@
     <small>2020 Bethany's Pie Shop - All rights reserved</small>-->
  </footer>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelement-and-player.min.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    new MediaElementPlayer("theVideo");
+    new MediaElementPlayer("theAudio");
+
+    let playButton = document.getElementById("playButton");
+    let pauseButton = document.getElementById("pauseButton");
+    let stopButton = document.getElementById("stopButton");
+    let theVideo = document.getElementById("theVideo");
+    let timeDisplay = document.getElementById("timeDisplay");
+
+    theVideo.addEventListener("ended", function () {
+        theVideo.currentTime = 0;
+    });
+
+    theVideo.addEventListener("timeupdate", function () {
+        timeDisplay.innerText = Math.floor(theVideo.currentTime);
+    });
+
+    playButton.addEventListener("click", function () {
+        //Play the video tag
+        theVideo.play();
+    });
+
+    pauseButton.addEventListener("click", function () {
+        //Pause the video tag
+        theVideo.pause();
+    });
+
+    stopButton.addEventListener("click", function () {
+        //Stop the video tag
+        theVideo.pause();
+        theVideo.currentTime = 0;
+    });
+});
+</script>
 </html>
 
 
